@@ -59,8 +59,17 @@ class TravianBot:
             raise_on_404=True,
         )
         self.browser.addheaders = [('User-agent', 'Firefox')]
-        
-        if self.settings['debug']: self.browser.set_verbose(2)
+        if ( bool(self.settings['debug']) == True): 
+            self.browser.set_verbose(2)
+            logger.setLevel(logging.INFO)
+            handler_file.setLevel(logging.INFO)
+            handler.setLevel(logging.INFO)
+            logger.info('Verbose Mode Enabled [%s]', str(self.settings['debug']))
+        else: 
+            logger.setLevel(logging.INFO)
+            handler_file.setLevel(logging.INFO)
+            handler.setLevel(logging.INFO)
+            logger.info('Verbose Mode Disabled [%s]', str(self.settings['debug']))
 
     def load_config(self):
         config = SafeConfigParser(allow_no_value=True)
@@ -207,10 +216,10 @@ class TravianBot:
                 page = self.browser.get_current_page()
                 curr_level = int(re.sub("[^0-9]", "", page.find('span', {'class': 'level'}).text ) )
                 if level <= curr_level:
-                    logger.info('[%s][BUILDFIELD] level already built [%d]', village['name'], curr_level)
+                    logger.info('[%s][BUILDFIELD] level already built [%d] on field [%d]', village['name'], curr_level, buid_id)
                     return 1
                 else:
-                    logger.info('[%s][BUILDFIELD] level still to be build [%d]', village['name'], curr_level)
+                    logger.info('[%s][BUILDFIELD] level still to be build [%d] on field [%d]', village['name'], curr_level, buid_id)
                 butt_con = page.find('div', {'class': 'upgradeButtonsContainer section2Enabled'})
                 if butt_con == None:
                     logger.info('[%s][BUILDFIELD] button not enabled: exiting', village['name'])

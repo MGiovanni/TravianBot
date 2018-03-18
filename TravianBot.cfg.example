@@ -9,9 +9,10 @@ AUTO_EVADE_DST_X=
 AUTO_EVADE_DST_Y=
 
 [BOT]
-DEBUG_MODE=True # True or False
+# True or False
+DEBUG_MODE=False 
 # interveal in seconds
-POLL_INTERVEAL=60
+POLL_INTERVEAL=120
 
 [MAIL]
 MAILUSER=_mailfrom_@gmail.com
