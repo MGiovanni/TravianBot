@@ -1,0 +1,19 @@
+[ACCOUNT]
+SERVER=https://tsNN.travian.AAA/
+USERNAME=_username_
+PASSWORD=_password_
+
+[SETTINGS]
+AUTO_EVADE_ATK=False # True or False
+AUTO_EVADE_DST_X=
+AUTO_EVADE_DST_Y=
+
+[BOT]
+DEBUG_MODE=True # True or False
+# interveal in seconds
+POLL_INTERVEAL=60
+
+[MAIL]
+MAILUSER=_mailfrom_@gmail.com
+MAILPASS=_passfrom_
+DESTMAIL=_mailto_@gmail.com

@@ -99,3 +99,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+/.project
+/build_jobs.csv
+/TravianBot.cfg
+/.pydevproject
